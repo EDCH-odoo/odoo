@@ -498,6 +498,7 @@ class StockWarehouseOrderpoint(models.Model):
     def _unlink_processed_orderpoints(self):
         domain = [
             ('create_uid', '=', SUPERUSER_ID),
+            ('write_uid', '=', SUPERUSER_ID),
             ('trigger', '=', 'manual'),
             ('qty_to_order', '<=', 0)
         ]
